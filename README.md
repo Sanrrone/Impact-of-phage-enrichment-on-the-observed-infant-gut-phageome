@@ -2,7 +2,7 @@
 
 Repository for pure data availability.
 
-<img src="file:///home/svalenzuela/Desktop/paper1/figures/HumanGutVirome%20protocol.jpg" title="" alt="pipeline" data-align="center">
+<img title="" src="figures/HumanGutVirome%20protocol.jpg" alt="pipeline" data-align="center">
 
 ### contigs
 
