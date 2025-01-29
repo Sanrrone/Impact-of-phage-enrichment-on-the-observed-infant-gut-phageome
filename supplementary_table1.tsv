@@ -1,0 +1,55 @@
+Sample name 	Protocol 	Buffer 	Feces weight (g) 	Beads used 	Viral DNA conc. (ng µl⁻¹) 
+s1_P1 	1	SMG1 	0.2	 	0.12
+s1_P1_buffer 	1	PBS 	- 	 	0.14
+s1_P1_min 	1	SMG1 	0.1	 	0
+s2_P1_buffer 	1	PBS 	- 	 	0.4
+s2_P1_min 	1	SMG1 	0.1	 	0.25
+s2_P1_PBS 	1	PBS 	0.2	 	0.34
+s2_P1_S 	1	SMG1 	0.2	 	0.39
+s2_P1_S_min 	1	SMG1 	0.1	 	0.17
+s3_P1_S 	1	SMG1 	0.2	 	0.05
+s4_P1 	1	SMG1 	0.2	 	0
+s4_P1_max 	1	SMG1 	0.5	 	0.05
+s4_P1_min 	1	SMG1 	0.1	 	0
+s5_P1_max 	1	SMG1 	0.5	 	0
+s6_P1 	1	SMG1 	0.2	 	0
+s6_P1_S 	1	SMG1 	0.2	x 	0
+s7_P2 	2	SMG2 	0.2	 	1.71
+s7_P2_buffer 	2	PBS 	- 	 	1.34
+s7_P2_S 	2	SMG2 	0.2	 	0.9
+s2_P2 	2	SMG2 	0.2	 	0.38
+s4_P2 	2	SMG2 	0.2	 	0.08
+s8_P2 	2	SMG2 	0.2	 	0
+s8_P2_S 	2	SMG2 	0.2	 	0
+s6_P2 	2	SMG2 	0.2	 	0.07
+s6_P2_S 	2	SMG2 	0.2	 	0.07
+s1_P3 	3	SMG1 	0.2	 	0.12
+s1_P3_S 	3	SMG1 	0.2	 	0.23
+s2_P3 	3	SMG1 	0.2	 	0.46
+s9_P3_PBS 	3	PBS 	0.2	 	0.07
+s3_P3 	3	SMG1 	0.2	 	0.56
+s3_P3_S 	3	SMG1 	0.2	 	0.14
+s8_P3 	3	SMG1 	0.2	 	0.07
+s10_P3 	3	SMG1 	0.2	 	0
+s10_P3_S 	3	SMG1 	0.2	 	0
+s6_P3 	3	SMG1 	0.2	 	0.07
+s7_P4 	4	SMG2 	0.2	 	1.12
+s1_P4 	4	SMG2 	0.2	 	0.16
+s1_P4_kit 	4	SMG2 	0.2	 	0.14
+s1_P4_PBS 	4	PBS 	0.2	 	0.09
+s11_P4 	4	SMG2 	0.2	 	0
+s11_P4_kit 	4	SMG2 	0.2	 	0
+s11_P4_PBS 	4	PBS 	0.2	 	0
+s12_P4_B 	4	SMG2 	0.2	x 	0.21
+s12_P4_PBS 	4	PBS 	0.2	 	0.13
+s10_P4 	4	SMG2 	 	 	0.08
+s13_P5 	5	SMG2 	0.2	 	0.24
+s13_P5_B 	5	SMG2 	0.2	x 	0.54
+s9_P5 	5	SMG2 	0.2	 	0
+s9_P5_B 	5	SMG2 	0.2	x 	0
+s3_P5_B 	5	SMG2 	0.2	x 	0.09
+s8_P5 	5	SMG2 	0.2	 	0.06
+s8_P5_B 	5	SMG2 	0.2	x 	0.1
+s14_P5 	5	SMG2 	0.2	 	0.52
+s14_P5_B 	5	SMG2 	0.2	x 	0.58
+s15_P5_B 	5	SMG2 	0.2	x 	0.12
