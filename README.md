@@ -20,6 +20,6 @@ All the information extracted from the contigs.
 
 Script used to decontaminate HumGutDB using UHGV.
 
-### supplementary_table1&2
+### supplementary_table1-3
 
 Supplementary table used in this study with all the metadata per sample.
