@@ -2,6 +2,9 @@
 
 Repository for pure data availability.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15040456.svg)](https://doi.org/10.5281/zenodo.15040456)
+
+
 <img title="" src="figures/HumanGutVirome%20protocol.jpg" alt="pipeline" data-align="center">
 
 ### contigs
