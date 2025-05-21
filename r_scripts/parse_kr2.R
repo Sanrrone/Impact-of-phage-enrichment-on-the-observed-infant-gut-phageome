@@ -120,7 +120,7 @@ df_kr2<-lapply(l, function(tsv){
   taxdf<-subset(taxdf,domain=="Viruses")
   
   tmp<-merge(tmp,taxdf, by="tid", all.x = T)
-  tmp$hepID<-sname
+  tmp$sepID<-sname
   tmp$family<-sapply(tmp$family,function(x){
     #print(x)
     if(is.na(x)){return(NA)}
@@ -176,7 +176,7 @@ df_kr2<-lapply(l, function(tsv){
   })
   
   
-  tmp<-subset(tmp[,c("hepID","ID","isphage","family","genus","species","kmertax")], !is.na(family))
+  tmp<-subset(tmp[,c("sepID","ID","isphage","family","genus","species","kmertax")], !is.na(family))
   if(nrow(tmp)==0){
     return(NULL)
   }else{
@@ -184,11 +184,11 @@ df_kr2<-lapply(l, function(tsv){
   }
 }) %>% bind_rows()
 
-dfphagetag<-df_kr2[,c("hepID","ID","isphage")]
+dfphagetag<-df_kr2[,c("sepID","ID","isphage")]
 df_kr2$isphage<-NULL
 
 #### general plot
-p1<-ggplot(df_kr2, aes(x=hepID, y=kmertax)) +
+p1<-ggplot(df_kr2, aes(x=sepID, y=kmertax)) +
   geom_boxplot() + ylim(0,1) +
   coord_flip() + theme_bw() +
   geom_hline(yintercept = 0.5, linetype="dashed", color="darkgreen") +

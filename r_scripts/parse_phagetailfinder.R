@@ -13,6 +13,6 @@ df_bacph<-lapply(l, function(tsv){
   colnames(tmp)[1]<-"ID"
 
 
-  tmp$hepID<-sname
+  tmp$sepID<-sname
 
 }) %>% bind_rows()

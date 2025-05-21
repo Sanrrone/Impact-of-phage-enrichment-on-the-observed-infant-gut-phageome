@@ -30,7 +30,7 @@ set -ex
 #$new/software/centrifuge-1.0.4/centrifuge-kreport -x $new/software/centrifugeDB/nt/nt ${sname}_centrifuge_report.tsv > ${sname}_centrifuge.kreport
 #rm -f ${sname}_centrifuge_report.tsv
 
-minimap2 -t $c --split-prefix=${sname}_tmp -a $new/software/hep_bactDB/m2/hepB.mmi ${home_project}/5_phages_readmapback/nomap/${sname}_virnomap.fq.gz | samtools view -h -F 2308 | samtools sort | samtools view -bh > ${sname}_map.bam
+minimap2 -t $c --split-prefix=${sname}_tmp -a $new/software/sep_bactDB/m2/sepB.mmi ${home_project}/5_phages_readmapback/nomap/${sname}_virnomap.fq.gz | samtools view -h -F 2308 | samtools sort | samtools view -bh > ${sname}_map.bam
 #minimap2 -t $c --split-prefix=${sname}_tmp -a $new/software/HumGutDB/m2/hg.mmi ${home_project}/5_phages_readmapback/nomap/${sname}_virnomap.fq.gz | samtools view -h -F 4 | samtools view -bh > ${sname}.tmp.bam
 
 #for flag in 99 147 83 163 67 131 115 179
@@ -53,6 +53,6 @@ awk -F'\t' '{if(NR==FNR){n[$1]=$2}else{if($1 in n){print $1"\t"n[$1]"\t"$2"\t"$3
 #for humgutdb
 #awk -F'\t' 'BEGIN{print "ID\tlength\traw_abundance\tbpcov1\tbpcov3\tbpcov5\tbpcov10\tmdepth1\tmdepth3\tmdepth5\tmdepth10"}{if(NR==FNR){n[$1]=$16}else{split($1,a,"|");$1=a[3];split(a[3],b,"_");c=b[1]"_"b[2];if(c in n)print $1"\t"n[c]"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t"$7"\t"$8"\t"$9"\t"$10}}' $HUMGUTTSV ${sname}.depths > ${sname}.bactstats
 
-#for hepbactdb
-awk -F'\t' 'BEGIN{print "ID\tlength\traw_abundance\tbpcov1\tbpcov3\tbpcov5\tbpcov10\tmdepth1\tmdepth3\tmdepth5\tmdepth10"}{if(NR==FNR){n[$1]=$2}else{if($1 in n){print $1"\t"n[$1]"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t"$7"\t"$8"\t"$9"\t"$10}}}' $new/software/hep_bactDB/hep_bact.tsv ${sname}.depths > ${sname}.bactstats
+#for sepbactdb
+awk -F'\t' 'BEGIN{print "ID\tlength\traw_abundance\tbpcov1\tbpcov3\tbpcov5\tbpcov10\tmdepth1\tmdepth3\tmdepth5\tmdepth10"}{if(NR==FNR){n[$1]=$2}else{if($1 in n){print $1"\t"n[$1]"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t"$7"\t"$8"\t"$9"\t"$10}}}' $new/software/sep_bactDB/sep_bact.tsv ${sname}.depths > ${sname}.bactstats
 rm -f ${sname}_map.massign ${sname}_map.rawcounts ${sname}_map.basescov ${sname}.depths ${sname}_map.flags ${sname}_map.bam

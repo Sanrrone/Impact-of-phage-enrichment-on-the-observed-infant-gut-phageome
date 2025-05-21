@@ -33,7 +33,7 @@ clstr_df <- data.frame(
   stringsAsFactors = FALSE
 )
 clstr_df$bin<-clstr_df$bin+1
-clstr_df$hepID<-sname
+clstr_df$sepID<-sname
 clstr_df
 }) %>% bind_rows()
 cdbins_df

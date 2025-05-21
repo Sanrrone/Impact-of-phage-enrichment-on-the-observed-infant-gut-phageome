@@ -21,7 +21,7 @@ n=$SLURM_ARRAY_TASK_ID
 
 source global_env.sh
 
-sname_assembly=`sed -n "${n} p" $hepsafile`
+sname_assembly=`sed -n "${n} p" $sepsafile`
 vircontigs="${home_project}/2_assembly/${sname_assembly}_virmining/minedviruses.fna"
 
 

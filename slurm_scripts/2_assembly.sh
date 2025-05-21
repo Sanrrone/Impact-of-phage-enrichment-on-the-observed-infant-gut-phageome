@@ -22,7 +22,7 @@ source global_env.sh
 n=$SLURM_ARRAY_TASK_ID
 c=$(nproc)
  
-sname_mag=`sed -n "${n} p" $hepsafile`
+sname_mag=`sed -n "${n} p" $sepsafile`
 #samples=$(awk -F"\t" -v s="$sname_mag" '{if($1"_"$4==s){print $2}}' $sampletable)
 samples=$(awk -F"\t" -v s=$sname_mag -v p="/scratch/project_2007362/sandro/HeP_samples/1_hostremoval/" '{if($1"_"$4==s){printf p$2".fq.gz "}}' $sampletable)
 

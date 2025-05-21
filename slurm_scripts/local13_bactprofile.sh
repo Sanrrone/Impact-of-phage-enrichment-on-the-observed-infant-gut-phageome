@@ -5,7 +5,7 @@ curd=$2
 
 source global_env.sh
 
-r3=`sed -n "${n} p" $sfile1`
+r3=`sed -n "${n} p" $sfile`
 sname=$(basename $r3 | sed "s/.fq.gz//g")
 
 cd ${home_project}/6_tax_profile/bact

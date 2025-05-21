@@ -6,8 +6,8 @@ df_dvp<-lapply(l, function(tsv){
   if(countLines(tsv)<=1){return(NULL)}
   tmp<-read.table(tsv,header = T, sep = "\t",skipNul = T, stringsAsFactors = F)
   colnames(tmp)<-c("ID","len","dvp","pbb")
-  tmp$hepID<-sname
-  tmp[,c("ID","dvp","hepID")]
+  tmp$sepID<-sname
+  tmp[,c("ID","dvp","sepID")]
 }) %>% bind_rows()
 
 #vs2
@@ -19,9 +19,9 @@ df_vs2<-lapply(l, function(tsv){
   tmp<-read.table(tsv,header = T, sep = "\t", stringsAsFactors = F)
   colnames(tmp)<-c("ID","vs2","max_score","max_score_group","group","length","hallmark","viral_gene","nonviral_gene")
   tmp$ID<-sapply(tmp$ID,function(i){strsplit(i,"\\|\\|")[[1]][1]})
-  tmp$hepID<-sname
+  tmp$sepID<-sname
   tmp$vs2<-ifelse(is.nan(tmp$vs2),0,tmp$vs2)
-  tmp[,c("ID","vs2","hepID")]
+  tmp[,c("ID","vs2","sepID")]
 }) %>% bind_rows()
 
 #mpp
@@ -32,8 +32,8 @@ df_mpp<-lapply(l, function(tsv){
   if(countLines(tsv)<=1){return(NULL)}
   tmp<-read.table(tsv,header = T, sep = "\t", stringsAsFactors = F)
   colnames(tmp)<-c("ID","length","mpp")
-  tmp$hepID<-sname
-  tmp[,c("ID","mpp","hepID")]
+  tmp$sepID<-sname
+  tmp[,c("ID","mpp","sepID")]
 }) %>% bind_rows()
 
 #phamer
@@ -44,8 +44,8 @@ df_phamer<-lapply(l, function(tsv){
   if(countLines(tsv)<=1){return(NULL)}
   tmp<-read.table(tsv,header = T, sep = "\t", stringsAsFactors = F)
   colnames(tmp)<-c("ID","length","pred","proportion","phamer","confidence")
-  tmp$hepID<-sname
-  tmp[,c("ID","phamer","hepID")]
+  tmp$sepID<-sname
+  tmp[,c("ID","phamer","sepID")]
 }) %>% bind_rows()
 
 df_eval<-Reduce(function(x, y) merge(x,y, all= TRUE), list(df_dvp,df_vs2,df_mpp,df_phamer)) %>% tibble()

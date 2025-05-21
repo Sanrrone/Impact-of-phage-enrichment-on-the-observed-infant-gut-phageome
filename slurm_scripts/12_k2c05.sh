@@ -16,12 +16,12 @@ new="/scratch/project_2007362"
 n=$SLURM_ARRAY_TASK_ID
 source global_env.sh
  
-sname_mag=`sed -n "${n} p" $hepsafile`
-hep=$(echo $sname_mag | awk -F"_" '{print $1}')
-sa=$(echo $sname_mag | sed "s/${hep}_//g" )
+sname_mag=`sed -n "${n} p" $sepsafile`
+sep=$(echo $sname_mag | awk -F"_" '{print $1}')
+sa=$(echo $sname_mag | sed "s/${sep}_//g" )
 
 set -ex 
-awk -F"\t" -v h=$hep -v sa=$sa -v p="/scratch/project_2007362/sandro/HeP_samples/1_hostremoval/" '{if($1==h && $4==sa){print p$2".fq.gz"}}' $sampletable | 
+awk -F"\t" -v h=$sep -v sa=$sa -v p="/scratch/project_2007362/sandro/HeP_samples/1_hostremoval/" '{if($1==h && $4==sa){print p$2".fq.gz"}}' $sampletable | 
 	xargs -P 10 -n 1 -I {} bash ./getk2c05.sh {} ${sname_mag}
 
 wait

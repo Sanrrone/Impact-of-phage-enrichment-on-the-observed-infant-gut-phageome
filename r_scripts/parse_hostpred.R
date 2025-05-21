@@ -52,10 +52,10 @@ df_iphop<-lapply(l, function(csv){
     taxlvl
   })
   tmp<-subset(tmp) %>% group_by(Virus) %>% summarise(host=host[which.max(Confidence.score)], host_score=max(Confidence.score))
-  tmp$hepID<-sname
+  tmp$sepID<-sname
   tmp$host_s<-NA
-  tmp<-unique(tmp[,c("hepID","Virus","host","host_s","host_score")])
-  colnames(tmp)<-c("hepID","ID","host_g","host_s","host_score")
+  tmp<-unique(tmp[,c("sepID","Virus","host","host_s","host_score")])
+  colnames(tmp)<-c("sepID","ID","host_g","host_s","host_score")
   #tmp$host_score<-tmp$host_score/100
   tmp
 
@@ -79,15 +79,15 @@ df_hostkr<-lapply(l,function(tsv){
   tmp$kmertax<- -1*tmp$kmertax
   colnames(tmp)<-c("ID","host_g","host_s", "host_score")
   tmp<-tmp%>%filter(!is.na(host_g))
-  tmp$hepID<-sname
+  tmp$sepID<-sname
   tmp
   
 }) %>% bind_rows()
 
-df_host<-lapply(unique(c(df_iphop$hepID, df_hostkr$hepID)),function(h){
-  subtmpi<-subset(df_iphop, hepID==h)
-  subtmpk<-subset(df_hostkr, hepID==h)
-  tmp<-lapply(subset(cdf, hepID==h)$ID,function(id){
+df_host<-lapply(unique(c(df_iphop$sepID, df_hostkr$sepID)),function(h){
+  subtmpi<-subset(df_iphop, sepID==h)
+  subtmpk<-subset(df_hostkr, sepID==h)
+  tmp<-lapply(subset(cdf, sepID==h)$ID,function(id){
     idarr<-strsplit(id,"_")[[1]]
     if(length(idarr)>2){
       # >2 means phage is extracted from chromosome by checkv or phageboost.
@@ -97,11 +97,11 @@ df_host<-lapply(unique(c(df_iphop$hepID, df_hostkr$hepID)),function(h){
     }else{
       res<-subtmpi[which(subtmpi$ID %in% id),]
     }
-    emptydf<-data.frame(hepID=h, ID=id, host_g=NA, host_s=NA, host_score=NA)
+    emptydf<-data.frame(sepID=h, ID=id, host_g=NA, host_s=NA, host_score=NA)
     if(nrow(res)==0){
       return(emptydf)
     }else{
-      return(data.frame(hepID=h, ID=id, host_g=res$host_g, host_s=res$host_s, host_score=res$host_score))
+      return(data.frame(sepID=h, ID=id, host_g=res$host_g, host_s=res$host_s, host_score=res$host_score))
     }
   }) %>% bind_rows()
   tmp
@@ -137,17 +137,17 @@ df_host$host_g<-sapply(df_host$host_g,function(g){
 #    }
 #    return(NA)
 #  })
-#  tmp$hepID<-sname
+#  tmp$sepID<-sname
 #  colnames(tmp)[1]<-"ID"
 #  colnames(tmp)[4]<-"host_score"
-#  tmp[,c("hepID","ID","host_g","host_s","host_score")]
+#  tmp[,c("sepID","ID","host_g","host_s","host_score")]
 #}) %>% bind_rows()
 #
 #
-#df_host<-lapply(unique(c(df_cherry$hepID, df_hostkr$hepID)),function(h){
-#  subtmpi<-subset(df_cherry, hepID==h)
-#  subtmpk<-subset(df_hostkr, hepID==h)
-#  m<-merge(subtmpi,subtmpk, by=c("hepID","ID"),all=T)
+#df_host<-lapply(unique(c(df_cherry$sepID, df_hostkr$sepID)),function(h){
+#  subtmpi<-subset(df_cherry, sepID==h)
+#  subtmpk<-subset(df_hostkr, sepID==h)
+#  m<-merge(subtmpi,subtmpk, by=c("sepID","ID"),all=T)
 #  
 #  tmp<-lapply(1:nrow(m),function(i){
 #    sm<-m[i,]

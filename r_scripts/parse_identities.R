@@ -5,7 +5,7 @@ setwd("~/Desktop/phage_enrichment_newassembly")
 #  sname<-gsub(".idt","",basename(tsv))
 #  tmp<-read.table(tsv, header = F, sep = "\t")
 #  colnames(tmp)<-c("ID1","ID2","identity")
-#  tmp$hepID<-sname
+#  tmp$sepID<-sname
 #  tmp %>% filter(identity>0.2)
 #  
 #}) %>% bind_rows()
@@ -19,7 +19,7 @@ setwd("~/Desktop/phage_enrichment_newassembly")
 #  if(countLines(tsv)==0){return(NULL)}
 #  tmp<-read.table(tsv, header = F, sep = "\t")
 #  colnames(tmp)<-c("ID1","ID2","identity")
-#  tmp$hepID<-sname
+#  tmp$sepID<-sname
 #  tmp
 #  
 #}) %>% bind_rows()
@@ -33,7 +33,7 @@ setwd("~/Desktop/phage_enrichment_newassembly")
 #  if(countLines(tsv)==0){return(NULL)}
 #  tmp<-read.table(tsv, header = F, sep = "\t")
 #  colnames(tmp)<-c("ID1","ID2","identity")
-#  tmp$hepID<-sname
+#  tmp$sepID<-sname
 #  tmp %>% filter(ID1!=ID2)
 #  
 #}) %>% bind_rows() %>% tibble()
@@ -44,7 +44,7 @@ setwd("~/Desktop/phage_enrichment_newassembly")
 #  if(countLines(csv)==0){return(NULL)}
 #  tmp<-read.csv(csv, header = T)
 #  colnames(tmp)[c(1:2)]<-c("ID1","ID2")
-#  tmp$hepID<-sname
+#  tmp$sepID<-sname
 #  tmp<-tmp[,c(1,2,13,14)]
 #  tmp %>% filter(ID1!=ID2)
 #  
@@ -57,7 +57,7 @@ atclust_df<-lapply(l, function(csv){
   if(countLines(csv)==0){return(NULL)}
   tmp<-read.csv(csv, header = T)
   colnames(tmp)[c(3,5,6)]<-c("identity","ID1","ID2")
-  tmp$hepID<-sname
+  tmp$sepID<-sname
   tmp<-tmp[,c(5,6,3,7)]
   tmp %>% filter(ID1!=ID2)
   
@@ -66,9 +66,9 @@ atclust_df<-lapply(l, function(csv){
 
 #cluster by ATClust (kmer and shanon entropy based)
 fid<-0.7
-cls_df_atclust<-lapply(heps, function(h){
+cls_df_atclust<-lapply(seps, function(h){
   #print(h)
-  ftmp<-atclust_df%>%filter(identity>fid, hepID==h)
+  ftmp<-atclust_df%>%filter(identity>fid, sepID==h)
   if(nrow(ftmp)==0){return(NULL)}
   dtmp<-dcast(ftmp, ID1~ID2,value.var = "identity",fill=0)
   rownames(dtmp)<-dtmp$ID1
@@ -83,7 +83,7 @@ cls_df_atclust<-lapply(heps, function(h){
   clusters <- cutree(hc, h = fid)
   
   gdf<-data.frame(ID=names(clusters),bin=clusters, row.names = NULL)
-  gdf$hepID<-h
+  gdf$sepID<-h
   gdf%>%arrange(bin)
   
 }) %>% bind_rows() %>% tibble()

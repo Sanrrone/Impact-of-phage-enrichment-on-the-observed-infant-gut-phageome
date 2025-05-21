@@ -36,8 +36,8 @@ sdf<-read.table("helpfiles/summary_samples.tsv", sep = "\t", header = F) #sample
 cdf<-read.table("helpfiles/summary_contigs.tsv", sep = "\t", header = F)
 #cdf<-subset(cdf, V3>=2000)
 colnames(sdf)<-c("sample","total")
-colnames(cdf)<-c("hepID","ID","length")
-heps<-unique(cdf$hepID)
+colnames(cdf)<-c("sepID","ID","length")
+seps<-unique(cdf$sepID)
 samples<-unique(sdf$sample)
 ### metadata
 metadf<-read.table("helpfiles/metadata.tsv", sep = "\t", stringsAsFactors = F, header = T, fill = T, quote = '', na.strings = "")
@@ -50,38 +50,38 @@ metamaster$sample<-metamaster$Sample_ID
 meta_trust<-read.table("helpfiles/trusted_table.tsv", sep = "\t", header = T)
 blacklist<-read.table("helpfiles/blacklist.txt", header = F)$V1
 supptable<-read.table("helpfiles/supp_table1.tsv", header = F, sep = "\t")
-colnames(supptable)<-c("hepID","sample","day","sampling_age","phage_enriched","delivery","X16S")
+colnames(supptable)<-c("sepID","sample","day","sampling_age","phage_enriched","delivery","X16S")
 
 add_metadata<-function(df){
   if(!"samples" %in% colnames(df) && !"sample" %in% colnames(df)){
-    df$delivery<-sapply(df$hepID, function(x){opt<-metadf[which(x==metadf$sample),"Delivery.mode"]; unique(opt[!is.na(opt)])})
-    df$phage_enriched<-sapply(df$hepID, function(x){metadf[which(x==metadf$sample),"Phage.metagenomics"][1]})
-    if(grepl("month",df$hepID[1])){
-      df$age<-sapply(df$hepID, function(x){tmp<-strsplit(x,"_")[[1]];paste0(tmp[2]," ",tmp[3])})
+    df$delivery<-sapply(df$sepID, function(x){opt<-metadf[which(x==metadf$sample),"Delivery.mode"]; unique(opt[!is.na(opt)])})
+    df$phage_enriched<-sapply(df$sepID, function(x){metadf[which(x==metadf$sample),"Phage.metagenomics"][1]})
+    if(grepl("month",df$sepID[1])){
+      df$age<-sapply(df$sepID, function(x){tmp<-strsplit(x,"_")[[1]];paste0(tmp[2]," ",tmp[3])})
     }
     return(df)
   }
   if(class(df$sample)=="factor"){
     df$sample<-unfactor(df$sample)  
   }
-  if(!"hepID" %in% colnames(df)){
-    df$hepID<-sapply(df$sample, function(x){tmp<-strsplit(x,"-")[[1]];paste0(tmp[1],"-",tmp[2])})
+  if(!"sepID" %in% colnames(df)){
+    df$sepID<-sapply(df$sample, function(x){tmp<-strsplit(x,"-")[[1]];paste0(tmp[1],"-",tmp[2])})
   }
   df$sample<-factor(df$sample, levels = unique(df[mixedorder(df$sample,decreasing = T),]$sample))
   df$sampling_age<-sapply(df$sample, function(s){meta_bysample_df[which(meta_bysample_df$sample==s),]$Sample_type})
   df$sa<-sapply(df$sampling_age,function(x)gsub(pattern = " ","_",x))
-  df$hepID<-paste0(df$hepID,"_",df$sa)
+  df$sepID<-paste0(df$sepID,"_",df$sa)
   df$sa<-NULL
-  df$delivery<-sapply(df$hepID, function(x){opt<-metadf[which(x==metadf$sample),"Delivery.mode"]; unique(opt[!is.na(opt)])})
+  df$delivery<-sapply(df$sepID, function(x){opt<-metadf[which(x==metadf$sample),"Delivery.mode"]; unique(opt[!is.na(opt)])})
   df<-subset(df, delivery %in% c("Vaginal","Cesarean"))
-  df$phage_enriched<-sapply(df$hepID, function(x){metadf[which(x==metadf$sample),"Phage.metagenomics"][1]})
+  df$phage_enriched<-sapply(df$sepID, function(x){metadf[which(x==metadf$sample),"Phage.metagenomics"][1]})
   df$day<-sapply(df$sample, function(x){as.numeric(strsplit(as.character(x),"-")[[1]][3])})
-  mins<-df %>% group_by(hepID) %>% summarise(day=min(day))
+  mins<-df %>% group_by(sepID) %>% summarise(day=min(day))
   df$representative<-sapply(df$sample, function(x){
     tmp<-strsplit(as.character(x),"-")[[1]]
-    hep<-paste(tmp[1:2], collapse = "-")
+    sep<-paste(tmp[1:2], collapse = "-")
     d<-as.numeric(tmp[3])
-    nrow(subset(mins, hepID==hep & day==d))==1
+    nrow(subset(mins, sepID==sep & day==d))==1
   })
   df
 }

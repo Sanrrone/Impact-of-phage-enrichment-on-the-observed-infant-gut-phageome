@@ -1,10 +1,9 @@
 ### general path files
-home_project=$new/sandro/HeP_samples # main path as starting to point to build further paths
+home_project=$new/sandro/S_samples # main path as starting to point to build further paths
 sampletable="/users/valensan/phage_approach/supp_files/supp_table1.tsv" #tsv file with the samples
-onlyhep="supp_files/hep.txt"
-hepsafile="supp_files/hep_sa.txt"
-sfile1="supp_files/samples.txt"
-sfile2="supp_files/samples2.txt"
+onlysep="supp_files/sep.txt"
+sepsafile="supp_files/sep_sa.txt"
+sfile="supp_files/samples.txt"
 
 #### software parameters
 fscore=0.9 # confidence score for software

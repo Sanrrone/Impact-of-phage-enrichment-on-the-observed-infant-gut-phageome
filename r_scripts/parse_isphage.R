@@ -7,7 +7,7 @@ df_isp1<-lapply(l,function(txt){
   if(nrow(txtdf)==0){return(NULL)}
   colnames(txtdf)[1]<-"ID"
   txtdf$isphage<-"yes"
-  txtdf$hepID<-sname
+  txtdf$sepID<-sname
   txtdf
   
 }) %>% bind_rows()
@@ -19,15 +19,15 @@ df_isp2<-lapply(l,function(txt){
   if(nrow(txtdf)==0){return(NULL)}
   colnames(txtdf)[1]<-"ID"
   txtdf$isphage<-"yes"
-  txtdf$hepID<-sname
+  txtdf$sepID<-sname
   txtdf
   
 }) %>% bind_rows()
 
-df_isphage<-merge(df_isp1,df_isp2,by=c("hepID","ID"))
+df_isphage<-merge(df_isp1,df_isp2,by=c("sepID","ID"))
 df_isphage$isphage<-sapply(1:nrow(df_isphage),function(i){
   x<-df_isphage[i,] %>% pull(isphage.x)
   y<-df_isphage[i,] %>% pull(isphage.y)
   ifelse(x=="yes" || y=="yes", "yes",NA)
 })
-df_isphage<-df_isphage[,c("hepID","ID","isphage")]
+df_isphage<-df_isphage[,c("sepID","ID","isphage")]

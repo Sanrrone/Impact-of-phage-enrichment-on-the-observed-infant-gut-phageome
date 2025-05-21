@@ -30,10 +30,10 @@ df_phagcn<-lapply(l, function(tsv){
   tmp$pvalue<-sapply(tmp$tmpcol,function(x)strsplit(x,";")[[1]][2])
   tmp$pvalue<-as.numeric(tmp$pvalue)
   tmp<-tmp%>%filter(pvalue>0.7)
-  tmp$hepID<-sname
+  tmp$sepID<-sname
   tmp$species<-NA
   colnames(tmp)[1]<-"ID"
-  tmp[,c("hepID","ID","family","genus","species","pvalue")]
+  tmp[,c("sepID","ID","family","genus","species","pvalue")]
 }) %>% bind_rows()
 df_phagcn$genus<-ifelse(df_phagcn$genus=="-",NA,df_phagcn$genus)
 

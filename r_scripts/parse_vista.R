@@ -6,8 +6,8 @@ df_vista<-lapply(l, function(tsv){
   colnames(tmp)<-c("ID","family","genus","species","distance")
   #tmp<-subset(tmp, distance<=0.1) %>% group_by(ID) %>% slice(which.min(distance)) 
   if(nrow(tmp)==0){return(NULL)}
-  tmp$hepID<-sname
+  tmp$sepID<-sname
   tmp$simi<- 1-tmp$distance
-  tmp[,c("hepID","ID","family","genus","species","simi")]
+  tmp[,c("sepID","ID","family","genus","species","simi")]
 }) %>% bind_rows()
 

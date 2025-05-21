@@ -18,7 +18,7 @@ new="/scratch/project_2007362"
 
 source global_env.sh
 
-cat $hepsafile | while read h
+cat $sepsafile | while read h
 do 
-	awk -v hep=$h 'BEGIN{FS="[>]"} /^>/{val=$2;next}  {print hep"\t"val"\t"length($0);val=""} END{if(val!=""){print val}}' ${home_project}/2_assembly/${h}_checkv/minedviruses.fna
+	awk -v sep=$h 'BEGIN{FS="[>]"} /^>/{val=$2;next}  {print sep"\t"val"\t"length($0);val=""} END{if(val!=""){print val}}' ${home_project}/2_assembly/${h}_checkv/minedviruses.fna
 done > supp_files/summary_contigs.tsv

@@ -22,7 +22,7 @@ source global_env.sh
 
 n=$SLURM_ARRAY_TASK_ID
 
-sname_assembly=`sed -n "${n} p" $hepsafile`
+sname_assembly=`sed -n "${n} p" $sepsafile`
 vircontigs="${sname_assembly}_virmining/minedviruses.fna"
 PDIR="$new/software/PhaBOX"
 

@@ -1,4 +1,4 @@
-cat supp_files/hep_sa.txt | while read h
+cat supp_files/sep_sa.txt | while read h
 do
 cd $new/sandro/HeP_samples/2_assembly/${h}_virmining
 grep "phage" minedviruses.fna | awk -F"_" -v h=$h '{gsub(">","",$0);print h"\t"$0"\t"$1"_"$2"\t"$4"\t"$5}' >> ~/phage_approach/supp_files/prophages_coordinates.tsv

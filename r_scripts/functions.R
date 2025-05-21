@@ -43,14 +43,14 @@ if(file.exists("dfcounts.tsv")){
     tmp
   }) %>% bind_rows
   df_rcounts<-add_metadata(df_rcounts)
-  df_rcounts<-lapply(unique(df_rcounts$hepID),function(h){
-    tmp0<-df_rcounts %>% filter(hepID==h)
+  df_rcounts<-lapply(unique(df_rcounts$sepID),function(h){
+    tmp0<-df_rcounts %>% filter(sepID==h)
     ddf<-dcast(tmp0 %>% group_by(sample,ID) %>% reframe(pa=ifelse(cov>0,1,0)),
                ID~sample,value.var = "pa", fill = 0, fun.aggregate = mean)
     ddf$prevalence<-rowSums(ddf[,-1])/ncol(ddf[,-1])
-    ddf$hepID<-h
-    ddf<-ddf[,c("hepID","ID","prevalence")]
-    mprevs<-merge(tmp0,ddf, by=c("hepID","ID"), all=T)
+    ddf$sepID<-h
+    ddf<-ddf[,c("sepID","ID","prevalence")]
+    mprevs<-merge(tmp0,ddf, by=c("sepID","ID"), all=T)
     
     return(mprevs)
     
@@ -59,7 +59,7 @@ if(file.exists("dfcounts.tsv")){
   
   #generate propgage coordinates.
   
-  smdf<-df_rcounts[,c("hepID","sample","ID")] %>% filter(grepl(" ",ID)|grepl("phage",ID))
+  smdf<-df_rcounts[,c("sepID","sample","ID")] %>% filter(grepl(" ",ID)|grepl("phage",ID))
   smdf$scaffold<-sapply(smdf$ID,function(x){paste(strsplit(x,"_")[[1]][1:2], collapse = "_")})
   smdf$fragment<-smdf$ID
   smdf$start<-sapply(smdf$ID,function(id){
@@ -91,7 +91,7 @@ if(file.exists("dfcounts.tsv")){
 }
 
 add_abundances<-function(df){
-  tmp<-merge(df_rcounts, df, by=c("ID","hepID"), all.x = T)
+  tmp<-merge(df_rcounts, df, by=c("ID","sepID"), all.x = T)
   tmp$family<-ifelse(is.na(tmp$family),"Viral",tmp$family)
   tmp
   

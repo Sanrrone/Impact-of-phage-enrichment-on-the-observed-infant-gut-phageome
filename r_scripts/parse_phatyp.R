@@ -12,7 +12,7 @@ df_phatyp<-lapply(l, function(tsv){
   tmp<-read.table(tsv, header = T, sep = "\t")
   colnames(tmp)<-c("ID","Length","phagetype","lf_prob_phatyp")
   tmp<-subset(tmp,lf_prob_phatyp>0.7)
-  tmp$hepID<-sname
-  tmp[,c("hepID","ID","phagetype","lf_prob_phatyp")]
+  tmp$sepID<-sname
+  tmp[,c("sepID","ID","phagetype","lf_prob_phatyp")]
   
 }) %>% bind_rows()

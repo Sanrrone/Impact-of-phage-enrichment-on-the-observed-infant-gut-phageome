@@ -53,6 +53,6 @@ df_blast<-lapply(l, function(tsv){
   colnames(tmp)[which(colnames(tmp)=="family_name")]<-"family"
   colnames(tmp)[which(colnames(tmp)=="genus_name")]<-"genus"
   tmp$species<-NA
-  tmp$hepID<-sname
+  tmp$sepID<-sname
   tmp
 }) %>% bind_rows()

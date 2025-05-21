@@ -21,7 +21,7 @@ n=$SLURM_ARRAY_TASK_ID
 
 source global_env.sh
 
-pair=`sed -n "${n} p" $hepsafile`
+pair=`sed -n "${n} p" $sepsafile`
 sname=$pair
 cpu=$(nproc)
 method=2

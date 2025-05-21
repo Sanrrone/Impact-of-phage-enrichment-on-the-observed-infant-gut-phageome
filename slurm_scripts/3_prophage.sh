@@ -31,7 +31,7 @@ ml blast
 ml seqkit
 ##############################################################################
 
-sname=`sed -n "${n} p" $hepsafile`
+sname=`sed -n "${n} p" $sepsafile`
 fscore=0.9
 
 cd ${home_project}/2_assembly

@@ -20,35 +20,35 @@ head(df_vtaxo)
 #head(df_av)
 head(df_blast)
 
-#tmp<-merge(dfphagetag, df_isphage, by=c("hepID","ID"), all=T)
+#tmp<-merge(dfphagetag, df_isphage, by=c("sepID","ID"), all=T)
 #tmp$isphage<-ifelse(tmp$isphage.x=="yes" | tmp$isphage.y=="yes", "yes", NA)
 #tmp$isphage.x<-NULL
 #tmp$isphage.y<-NULL
 #df_isphage<-tmp
 
 
-tax_df<-lapply(unique(cdf$hepID), function(h){
-  ptmp<-subset(df_phagcn %>% filter(family%in%pflist), hepID==h)
+tax_df<-lapply(unique(cdf$sepID), function(h){
+  ptmp<-subset(df_phagcn %>% filter(family%in%pflist), sepID==h)
   colnames(ptmp)[which(colnames(ptmp)=="family")]<-"ph_family"
   colnames(ptmp)[which(colnames(ptmp)=="genus")]<-"ph_genus"
   colnames(ptmp)[which(colnames(ptmp)=="species")]<-"ph_species"
   
-  #ktmp<-subset(df_kr2 %>% filter(family%in%pflist), hepID==h)
+  #ktmp<-subset(df_kr2 %>% filter(family%in%pflist), sepID==h)
   #colnames(ktmp)[which(colnames(ktmp)=="family")]<-"k2_family"
   #colnames(ktmp)[which(colnames(ktmp)=="genus")]<-"k2_genus"
   #colnames(ktmp)[which(colnames(ktmp)=="species")]<-"k2_species"
   
-  vtmp<-subset(df_vtaxo %>% filter(family%in%pflist), hepID==h)
+  vtmp<-subset(df_vtaxo %>% filter(family%in%pflist), sepID==h)
   colnames(vtmp)[which(colnames(vtmp)=="family")]<-"vt_family"
   colnames(vtmp)[which(colnames(vtmp)=="genus")]<-"vt_genus"
   colnames(vtmp)[which(colnames(vtmp)=="species")]<-"vt_species"
   
-  btmp<-subset(df_blast %>% filter(family%in%pflist), hepID==h)
+  btmp<-subset(df_blast %>% filter(family%in%pflist), sepID==h)
   colnames(btmp)[which(colnames(btmp)=="family")]<-"bl_family"
   colnames(btmp)[which(colnames(btmp)=="genus")]<-"bl_genus"
   colnames(btmp)[which(colnames(btmp)=="species")]<-"bl_species"
   
-  alldf<-Reduce(function(x,y) merge(x,y,by=c("hepID","ID"), all=T), 
+  alldf<-Reduce(function(x,y) merge(x,y,by=c("sepID","ID"), all=T), 
                 list(ptmp,btmp,vtmp))#,vatmp))
   if(nrow(alldf)==0){return(NULL)}
   alldf$family<-sapply(1:nrow(alldf),function(i){
@@ -90,7 +90,7 @@ tax_df<-lapply(unique(cdf$hepID), function(h){
     paste(collapse = ";;",c(paste0("pg",pv),paste0("bl",bv),paste0("vt",vv)))#,paste0("vc",sv)))
   })
   
-  alldf[,c("hepID","ID","family","genus","score")]
+  alldf[,c("sepID","ID","family","genus","score")]
   
 }) %>% bind_rows
 

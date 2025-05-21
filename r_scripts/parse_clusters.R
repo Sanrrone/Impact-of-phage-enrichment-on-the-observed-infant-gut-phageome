@@ -14,7 +14,7 @@ sclstr<-lapply(l, function(tsv){
     stmp$s__center<-c("C",rep("M", nrow(stmp)-1))
     stmp
   }) %>% bind_rows
-  tmp$hepID<-sname
+  tmp$sepID<-sname
   tmp
 }) %>% bind_rows
 
@@ -29,9 +29,9 @@ fclstr<-lapply(l, function(tsv){
     stmp$f__center<-c("C",rep("M", nrow(stmp)-1))
     stmp
   }) %>% bind_rows
-  tmp$hepID<-sname
+  tmp$sepID<-sname
   tmp
 }) %>% bind_rows()
 
-clstr_df<-merge(sclstr, fclstr, by=c("hepID","ID"), all=T)
+clstr_df<-merge(sclstr, fclstr, by=c("sepID","ID"), all=T)
 rm(fclstr, sclstr)

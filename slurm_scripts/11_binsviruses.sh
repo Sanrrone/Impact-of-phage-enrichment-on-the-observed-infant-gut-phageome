@@ -24,7 +24,7 @@ source global_env.sh
 
 set -e
 
-sname_assembly=`sed -n "${n} p" $hepsafile`
+sname_assembly=`sed -n "${n} p" $sepsafile`
 vircontigs="${sname_assembly}_virmining/minedviruses.fna"
 
 export PATH=$new/software/mambaforge/bin:$PATH

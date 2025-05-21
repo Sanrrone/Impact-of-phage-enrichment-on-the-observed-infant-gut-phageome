@@ -20,7 +20,7 @@ new="/scratch/project_2007362"
 source global_env.sh
 
 n=$SLURM_ARRAY_TASK_ID
-sname=`sed -n "${n} p" $hepsafile`
+sname=`sed -n "${n} p" $sepsafile`
 
 inputF=after_mpp.fna #input
 virfasta=minedviruses.fna #output
@@ -92,7 +92,7 @@ rm -f tmplen.tsv
 seqkit grep -w 0 -nf representatives.txt $virfasta > c98.fna
 perl $new/software/removesmalls.pl $lfilt c98.fna > minedviruses.fna
 
-awk -v hep="$sname" 'BEGIN{FS="[>]"} /^>/{val=$2;next}  {print hep"\t"val"\t"length($0);val=""} END{if(val!=""){print val}}' minedviruses.fna >> ~/phage_approach/supp_files/summary_contigs.tsv
+awk -v sep="$sname" 'BEGIN{FS="[>]"} /^>/{val=$2;next}  {print sep"\t"val"\t"length($0);val=""} END{if(val!=""){print val}}' minedviruses.fna >> ~/phage_approach/supp_files/summary_contigs.tsv
 grep "phage" minedviruses.fna | awk -F"_" -v h=$sname '{gsub(">","",$0);print h"\t"$0"\t"$1"_"$2"\t"$4"\t"$5}' >> ~/phage_approach/supp_files/prophages_coordinates.tsv
 grep "checkv" minedviruses.fna | awk -F"_" '{gsub(">","",$0);print $0"\t"$1"_"$2"\t"$5}' | awk -F"\t" -v h=$sname '{split($3,a,"-");split(a[2],b,"/");print h"\t"$1"\t"$2"\t"a[1]"\t"b[1]}' >> ~/phage_approach/supp_files/prophages_coordinates.tsv
 

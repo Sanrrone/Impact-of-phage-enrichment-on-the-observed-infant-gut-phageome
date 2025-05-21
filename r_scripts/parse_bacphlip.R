@@ -14,6 +14,6 @@ df_bacph<-lapply(l, function(tsv){
   tmp<-subset(tmp, Virulent>0.8 | Temperate>0.8)
   tmp$phagetype<-ifelse(tmp$Virulent>tmp$Temperate,"virulent","temperate")
   tmp$lf_prob_bacphlip<-ifelse(tmp$Virulent>tmp$Temperate,tmp$Virulent,tmp$Temperate)
-  tmp$hepID<-sname
-  tmp[,c("ID","hepID","phagetype","lf_prob_bacphlip")]
+  tmp$sepID<-sname
+  tmp[,c("ID","sepID","phagetype","lf_prob_bacphlip")]
 }) %>% bind_rows()

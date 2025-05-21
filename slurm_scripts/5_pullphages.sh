@@ -20,7 +20,7 @@ new="/scratch/project_2007362"
 source global_env.sh
 
 n=$SLURM_ARRAY_TASK_ID
-sname=`sed -n "${n} p" $hepsafile`
+sname=`sed -n "${n} p" $sepsafile`
 inputF=after_bactfilt.fna
 SDIR=$new/software
 PDIR="$new/software/PhaBOX"

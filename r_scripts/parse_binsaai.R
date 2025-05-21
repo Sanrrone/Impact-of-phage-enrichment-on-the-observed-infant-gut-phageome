@@ -19,7 +19,7 @@ aaibins_df<-lapply(l,function(clstr_file){
     df <- rbind(df,data.frame(ID=contig_names, bin = cn, stringsAsFactors = FALSE))
     cn<-cn+1
   }
-  df$hepID<-sname
+  df$sepID<-sname
   df
   
 }) %>% bind_rows()
@@ -44,7 +44,7 @@ g_aaibins_df<-lapply(l,function(clstr_file){
     df <- rbind(df,data.frame(ID=contig_names, bin = cn, stringsAsFactors = FALSE))
     cn<-cn+1
   }
-  df$hepID<-sname
+  df$sepID<-sname
   df
   
 }) %>% bind_rows()
