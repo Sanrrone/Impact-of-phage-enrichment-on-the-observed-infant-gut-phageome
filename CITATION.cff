@@ -9,4 +9,5 @@ version: v1.0.21052025
 doi: 10.5281/zenodo.15072255
 date-released: 2025-05-21
 url: "https://github.com/Sanrrone/Impact-of-phage-enrichment-on-the-observed-infant-gut-phageome"
-license: MIT
+license:
+- MIT
