@@ -1,13 +1,16 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
+message: If you use this software, please cite it using these metadata.
+title: Impact of phage enrichment on the observed infant gut phageome
+abstract: This is my awesome research software. It does many things.
 authors:
-- family-names: "Sandro"
-  given-names: "Valenzuela"
-  orcid: "https://orcid.org/0000-0002-2284-8243"
-title: "Impact-of-phage-enrichment-on-the-observed-infant-gut-phageome"
+  - family-names: Sandro
+    given-names: Valenzuela
+    orcid: "https://orcid.org/0000-0002-2284-8243"
 version: v1.1.21052025
-doi: 10.5281/zenodo.15072255
-date-released: 2025-05-21
-url: "https://github.com/Sanrrone/Impact-of-phage-enrichment-on-the-observed-infant-gut-phageome"
-license:
-- MIT
+date-released: "2025-05-21"
+identifiers:
+  - description: This is the collection of archived snapshots of all versions of My Research Software
+    type: doi
+    value: "10.5281/zenodo.15072255"
+license: MIT
+repository-code: "https://github.com/Sanrrone/Impact-of-phage-enrichment-on-the-observed-infant-gut-phageome"
