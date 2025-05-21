@@ -122,7 +122,7 @@ export PATH=$new/software/mambaforge/bin:$PATH
 eval "$(conda shell.bash hook)"
 conda activate k2
 
-kraken2 --db $humgutdb --report /dev/null --output ${sname}.kreads ${sname}_excluded.fna
+kraken2 --confidence 0.3 --db $humgutdb --report /dev/null --output ${sname}.kreads ${sname}_excluded.fna
 awk -F'\t' '{if($1=="C"){print}}' ${sname}.kreads |
         awk -F'\t' 'function sum(array){sumn=0;for(k in array){sumn+=array[k]}return(sumn)};{split($NF,kpairs," ");delete n;for(i in kpairs){split(kpairs[i],kp,":");n[kp[1]]+=kp[2]};asort(n, sN);print $2"\t"$3"\t"sN[length(sN)]/sum(sN)}' > ${home_project}/4_hostpred/${sname}_kr.tsv
 
