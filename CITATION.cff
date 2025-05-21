@@ -1,9 +1,11 @@
-cff-version: 1.1.0
+cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 authors:
-- family-names: Sandro
-- given-names: Valenzuela
-orcid: https://orcid.org/0000-0002-2284-8243
-title: "Impact of phage enrichment on the observed infant gut phageome"
+- family-names: "Sandro"
+  given-names: "Valenzuela"
+  orcid: "https://orcid.org/0000-0002-2284-8243"
+title: "Impact-of-phage-enrichment-on-the-observed-infant-gut-phageome"
 version: v1.0.21052025
+doi: 10.5281/zenodo.15072255
 date-released: 2025-05-21
+url: "https://github.com/Sanrrone/Impact-of-phage-enrichment-on-the-observed-infant-gut-phageome"
