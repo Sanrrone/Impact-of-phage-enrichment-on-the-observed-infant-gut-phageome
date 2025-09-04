@@ -35,7 +35,7 @@ sname=`sed -n "${n} p" $sepsafile`
 fscore=0.9
 
 cd ${home_project}/2_assembly
-#sname="HeP-219"
+
 echo "working on $sname"
 
 rm -rf ${sname}_virmining
