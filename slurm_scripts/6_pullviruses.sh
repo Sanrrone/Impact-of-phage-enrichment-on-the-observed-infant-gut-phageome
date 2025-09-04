@@ -25,7 +25,7 @@ sname=`sed -n "${n} p" $sepsafile`
 inputF=after_mpp.fna #input
 virfasta=minedviruses.fna #output
 SDIR=$new/software
-cpu=$(nproc)
+c=$(nproc)
 
 cd ${home_project}/2_assembly/${sname}_virmining
 
@@ -34,7 +34,7 @@ export PATH=$new/software/mambaforge/bin:$PATH
 eval "$(conda shell.bash hook)"
 conda activate $DVP_ENV
 
-python $SDIR/DeepVirFinder/dvf.py -i $inputF -m $SDIR/DeepVirFinder/models  -o . -l $lfilt -c $cpu
+python $SDIR/DeepVirFinder/dvf.py -i $inputF -m $SDIR/DeepVirFinder/models  -o . -l $lfilt -c $c
 mv ${inputF}_gt${lfilt}bp_dvfpred.txt ${sname}_dvp.tsv
 
 conda deactivate
@@ -81,7 +81,7 @@ awk 'BEGIN{FS="[>]"} /^>/{val=$2;next}  {print val"\t"length($0);val=""} END{if(
 
 ml blast
 makeblastdb -in $virfasta -out blastdb -dbtype nucl
-blastn -query $virfasta -db blastdb -out blast.tsv -outfmt '6 std qlen slen' -num_threads $cpu -max_target_seqs 100000 -perc_identity 50
+blastn -query $virfasta -db blastdb -out blast.tsv -outfmt '6 std qlen slen' -num_threads $c -max_target_seqs 100000 -perc_identity 50
 python $new/software/aaicluster/blastani.py -i blast.tsv -o ani.tsv
 python $new/software/aaicluster/cluster.py --fna $virfasta --ani ani.tsv --out ${sname}_ani_s.tsv --min_ani 98 --min_qcov 0 --min_tcov 85 
 rm -f blast.tsv ani.tsv blastdb*

@@ -101,9 +101,9 @@ sed "s/ /____/g" $virfasta > tmp.fna
 #sed "s/ .*//g" ~/phage_approach/ICTV_all.fasta >> tmp.fna
 virfasta=tmp.fna
 
-$new/software/ALFATClust/main/alfatclust.py -i $virfasta -o ${sname}_s.atclust -e ${sname}_s.repatclust -t $cpu -b dna --seed 1 -l 0.94 -d 0.01 #max value 94
+#$new/software/ALFATClust/main/alfatclust.py -i $virfasta -o ${sname}_s.atclust -e ${sname}_s.repatclust -t $cpu -b dna --seed 1 -l 0.94 -d 0.01 #max value 94
 $new/software/ALFATClust/main/alfatclust.py -i $virfasta -o ${sname}_f.atclust -e ${sname}_f.repatclust -t $cpu -b dna --seed 1 -l 0.7
-$new/software/ALFATClust/main/alfatclust.py -i $virfasta -o ${sname}_norank.atclust -e ${sname}_norank.repatclust -t $cpu --seed 1 -b dna -l 0.1
+#$new/software/ALFATClust/main/alfatclust.py -i $virfasta -o ${sname}_norank.atclust -e ${sname}_norank.repatclust -t $cpu --seed 1 -b dna -l 0.1
 
 #awk 'BEGIN{RS="#Cluster____"}{for(i=2;i<NF;i++){print $1"\t"$i};print $1"\t"$NF}' ${sname}_s.tmp > ${sname}_s.atclust.clstr
 #awk 'BEGIN{RS="#Cluster____"}{for(i=2;i<NF;i++){print $1"\t"$i};print $1"\t"$NF}' ${sname}_f.tmp > ${sname}_f.atclust.clstr
