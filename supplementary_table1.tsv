@@ -1,55 +1,55 @@
-Sample name 	Protocol 	Buffer 	Feces weight (g) 	Beads used 	Viral DNA conc. (ng µl⁻¹) 
-s1_D1 	D1	SMG1 	0.2	 	0.12
-s1_D1_buffer 	D1	PBS 	- 	 	0.14
-s1_D1_min 	D1	SMG1 	0.1	 	0
-s2_D1_buffer 	D1	PBS 	- 	 	0.4
-s2_D1_min 	D1	SMG1 	0.1	 	0.25
-s2_D1_PBS 	D1	PBS 	0.2	 	0.34
-s2_D1_S 	D1	SMG1 	0.2	 	0.39
-s2_D1_S_min 	D1	SMG1 	0.1	 	0.17
-s3_D1_S 	D1	SMG1 	0.2	 	0.05
-s4_D1 	D1	SMG1 	0.2	 	0
-s4_D1_max 	D1	SMG1 	0.5	 	0.05
-s4_D1_min 	D1	SMG1 	0.1	 	0
-s5_D1_max 	D1	SMG1 	0.5	 	0
-s6_D1 	D1	SMG1 	0.2	 	0
-s6_D1_S 	D1	SMG1 	0.2	x 	0
-s1_D2 	D2	SMG1 	0.2	 	0.12
-s1_D2_S 	D2	SMG1 	0.2	 	0.23
-s10_D2	D2	SMG1 	0.2	 	0
-s10_D2_S 	D2	SMG1 	0.2	 	0
-s2_D2	D2	SMG1 	0.2	 	0.46
-s3_D2	D2	SMG1 	0.2	 	0.56
-s3_D2_S 	D2	SMG1 	0.2	 	0.14
-s6_D2	D2	SMG1 	0.2	 	0.07
-s8_D2	D2	SMG1 	0.2	 	0.07
-s9_D2_PBS 	D2	PBS 	0.2	 	0.07
-s2_P1	P1	SMG2 	0.2	 	0.38
-s4_P1	P1	SMG2 	0.2	 	0.08
-s6_P1	P1	SMG2 	0.2	 	0.07
-s6_P1_S 	P1	SMG2 	0.2	 	0.07
-s7_P1 	P1	SMG2 	0.2	 	1.71
-s7_P1_buffer 	P1	PBS 	- 	 	1.34
-s7_P1_S 	P1	SMG2 	0.2	 	0.9
-s8_P1	P1	SMG2 	0.2	 	0
-s8_P1_S 	P1	SMG2 	0.2	 	0
-s1_P2	P2	SMG2 	0.2	 	0.16
-s1_P2_kit 	P2	SMG2 	0.2	 	0.14
-s1_P2_PBS 	P2	PBS 	0.2	 	0.09
-s10_P2	P2	SMG2 	 	 	0.08
-s11_P2	P2	SMG2 	0.2	 	0
-s11_P2_kit 	P2	SMG2 	0.2	 	0
-s11_P2_PBS 	P2	PBS 	0.2	 	0
-s12_P2_B 	P2	SMG2 	0.2	x 	0.21
-s12_P2_PBS 	P2	PBS 	0.2	 	0.13
-s7_P2	P2	SMG2 	0.2	 	1.12
-s13_P3	P3	SMG2 	0.2	 	0.24
-s13_P3_B 	P3	SMG2 	0.2	x 	0.54
-s14_P3	P3	SMG2 	0.2	 	0.52
-s14_P3_B 	P3	SMG2 	0.2	x 	0.58
-s15_P3_B 	P3	SMG2 	0.2	x 	0.12
-s3_P3_B 	P3	SMG2 	0.2	x 	0.09
-s8_P3 	P3	SMG2 	0.2	 	0.06
-s8_P3_B 	P3	SMG2 	0.2	x 	0.1
-s9_P3	P3	SMG2 	0.2	 	0
-s9_P3_B 	P3	SMG2 	0.2	x 	0
+Sample name 	Protocol 	Age in months	Buffer 	Feces weight (g) 	Beads used 	Viral DNA conc. (ng µl⁻¹) 
+s1_D1 	D1	1	SMG1 	0.2	 	0.12
+s1_D1_buffer 	D1	1	PBS 	- 	 	0.14
+s1_D1_min 	D1	1	SMG1 	0.1	 	0
+s2_D1_buffer 	D1	1	PBS 	- 	 	0.4
+s2_D1_min 	D1	1	SMG1 	0.1	 	0.25
+s2_D1_PBS 	D1	1	PBS 	0.2	 	0.34
+s2_D1_S 	D1	1	SMG1 	0.2	 	0.39
+s2_D1_S_min 	D1	1	SMG1 	0.1	 	0.17
+s3_D1_S 	D1	6	SMG1 	0.2	 	0.05
+s4_D1 	D1	6	SMG1 	0.2	 	0
+s4_D1_max 	D1	6	SMG1 	0.5	 	0.05
+s4_D1_min 	D1	6	SMG1 	0.1	 	0
+s5_D1_max 	D1	12	SMG1 	0.5	 	0
+s6_D1 	D1	12	SMG1 	0.2	 	0
+s6_D1_S 	D1	12	SMG1 	0.2	x 	0
+s1_D2 	D2	1	SMG1 	0.2	 	0.12
+s1_D2_S 	D2	1	SMG1 	0.2	 	0.23
+s10_D2	D2	12	SMG1 	0.2	 	0
+s10_D2_S 	D2	12	SMG1 	0.2	 	0
+s2_D2	D2	1	SMG1 	0.2	 	0.46
+s3_D2	D2	6	SMG1 	0.2	 	0.56
+s3_D2_S 	D2	6	SMG1 	0.2	 	0.14
+s6_D2	D2	12	SMG1 	0.2	 	0.07
+s8_D2	D2	12	SMG1 	0.2	 	0.07
+s9_D2_PBS 	D2	1	PBS 	0.2	 	0.07
+s2_P1	P1	1	SMG2 	0.2	 	0.38
+s4_P1	P1	6	SMG2 	0.2	 	0.08
+s6_P1	P1	12	SMG2 	0.2	 	0.07
+s6_P1_S 	P1	12	SMG2 	0.2	 	0.07
+s7_P1 	P1	1	SMG2 	0.2	 	1.71
+s7_P1_buffer 	P1	1	PBS 	- 	 	1.34
+s7_P1_S 	P1	1	SMG2 	0.2	 	0.9
+s8_P1	P1	12	SMG2 	0.2	 	0
+s8_P1_S 	P1	12	SMG2 	0.2	 	0
+s1_P2	P2	1	SMG2 	0.2	 	0.16
+s1_P2_kit 	P2	1	SMG2 	0.2	 	0.14
+s1_P2_PBS 	P2	1	PBS 	0.2	 	0.09
+s10_P2	P2	12	SMG2 	 	 	0.08
+s11_P2	P2	6	SMG2 	0.2	 	0
+s11_P2_kit 	P2	6	SMG2 	0.2	 	0
+s11_P2_PBS 	P2	6	PBS 	0.2	 	0
+s12_P2_B 	P2	12	SMG2 	0.2	x 	0.21
+s12_P2_PBS 	P2	12	PBS 	0.2	 	0.13
+s7_P2	P2	1	SMG2 	0.2	 	1.12
+s13_P3	P3	1	SMG2 	0.2	 	0.24
+s13_P3_B 	P3	1	SMG2 	0.2	x 	0.54
+s14_P3	P3	12	SMG2 	0.2	 	0.52
+s14_P3_B 	P3	12	SMG2 	0.2	x 	0.58
+s15_P3_B 	P3	12	SMG2 	0.2	x 	0.12
+s3_P3_B 	P3	6	SMG2 	0.2	x 	0.09
+s8_P3 	P3	12	SMG2 	0.2	 	0.06
+s8_P3_B 	P3	12	SMG2 	0.2	x 	0.1
+s9_P3	P3	1	SMG2 	0.2	 	0
+s9_P3_B 	P3	1	SMG2 	0.2	x 	0
