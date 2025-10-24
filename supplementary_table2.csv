@@ -1,4 +1,4 @@
-hepID	sample	day	age	protocol	delivery
+ID	sample	day	age	protocol	delivery
 S1_6_months	S1_1	1	6_months	no	Vaginal
 S1_6_months	S1_2	2	6_months	no	Vaginal
 S1_6_months	S1_3	3	6_months	no	Vaginal
